@@ -7,9 +7,7 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8080"));
-        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-
+        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
         // Serve HTML form
         server.createContext("/", exchange -> {
             byte[] html = Files.readAllBytes(Paths.get("public/index.html"));
